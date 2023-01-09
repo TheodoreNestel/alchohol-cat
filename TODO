@@ -58,3 +58,11 @@ and after a value is selected then the handleShot should be run for the liquor s
 
 2 seconds to display the logo and the name of the app before rendering the first bottle 
 
+
+
+
+
+***QUESTIONS 
+    -why does useEffect updating state run twice and how to prevent 
+        -it runs once then state is changed so it renders again (i assume is the logic)
+            -how make it not do that 

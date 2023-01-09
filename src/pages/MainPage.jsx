@@ -3,6 +3,9 @@ import LiquorCard from "../components/LiquorCard"
 
 function MainPage(){
 
+//IDEA state machine to track currently selected liquor ?
+
+
 //FUNCTIONALITY 
 // 
 
@@ -82,16 +85,25 @@ function MainPage(){
       const [currentLiquor , setCurrentLiquor] = useState(allDrinks[Object.keys(allDrinks)[0]])
 
 
+     //the amounts of shot consumed in total 
+      const [GlobalShot , setGlobalShot] = useState(0)
 
-      //this will track the amount of shots consumed (this will be reset to 0 by carousel or a useref looking at currentLiquor)
-      const [shotCount , setShotCount] = useState(0)
+      //total calories consumed - per alchohol and all together 
+      const [totalCal , setTotalCal] = useState({
+        rum : 0,
+        whiteRum : 0,
+        vodka : 0, 
+        gin : 0,
+        whiskey : 0,
+        tripleSec : 0,
+        cognac : 0 ,
+        tequila : 0,
+        whiteTequila : 0 ,
+        total : 0
 
-      //total calories consumed
-      const [totalCal , setTotalCal] = useState(0)
+      })
 
-
-
-      //this will keep track of all the types shots consumed 
+      //this will keep track of all the types shots consumed individual liquor
       const [totalShotsConsumed , setTotalShotsConsumed] = useState({
         rum : 0,
         whiteRum : 0,
@@ -101,24 +113,67 @@ function MainPage(){
         tripleSec : 0,
         cognac : 0 ,
         tequila : 0,
-        whiteTequila : 0 
+        whiteTequila : 0
 
       })
 
 
-      //this function updates our total shots object in state 
-      function handleShots(liquor){
+      //This function handles all shot logic [TYPE , AMOUNT , CALORIES]
+      function handleShots(liquor , operation){
 
         let newShotCount = {...totalShotsConsumed} //copies  our state object
 
-        newShotCount[liquor] = totalShotsConsumed[liquor] + 1 //we add one to the counter based on the liquor passed in
+        let newTotalCal = {...totalCal} //copies our calorie object  
+        //**JUN show me da proper way pls  */
+        newTotalCal["total"] = 0 //we set it to 0 so we can use reduce later 
 
-        console.log(newShotCount , "in the shot updater")
+        let newGlobalShot = 0
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//**MIGHT NEED REWORK &&& */
+
+        //SHOT INCREMENTATION LOGIC 
+        if(operation === "add"){
+          newShotCount[liquor] = totalShotsConsumed[liquor] + 1 //we add one to the counter based on the liquor passed in
+        }
+        else{
+          newShotCount[liquor] = totalShotsConsumed[liquor] - 1 //we remove one to our counter based on liquor
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //CALORIES & SHOT AMOUNTS LOGIC 
+        let keys = Object.keys(totalShotsConsumed) //gets all keys in the totalshots objects and returns an array 
+
+        //add a caloric count for each type of drink 
+        keys.forEach((liquori)=>{ //we iterate over each liquor and allShorts 
+          //logic for individual liquor cal 
+          newTotalCal[liquori] = newShotCount[liquori] * allDrinks[liquori]["cal"]
+
+        })
+
+         //we add up all the shots so we know how many shots we have total 
+         newGlobalShot = Object.values(newShotCount).reduce((acc , cur)=> acc  + cur , 0)
+
+         //we get our overall amount of calories ingested and add it back into our object
+         newTotalCal["total"] = Object.values(newTotalCal).reduce((acc , cur) => acc + cur , 0) // we add all the calories
+
+
+
+
+        //debug 
+        console.log("total cal" ,newTotalCal , "shots total" , newGlobalShot , "shots indi" , newShotCount)
+
+
+        //We now set state with all our new data 
         setTotalShotsConsumed(newShotCount) //we set our state with out updated object 
+        setGlobalShot(newGlobalShot)
+        setTotalCal(totalCal)
 
-        //**BUG ? when called three times will only add 2  */
       }
+
+
+
+      
 
       //resets out liquor shot counts - amount of shots overall - calories
       function reset(){
@@ -137,27 +192,37 @@ function MainPage(){
               }
         )
 
-        setShotCount(0)
+        setGlobalShot(0)
 
-        setTotalCal(0)
+        setTotalCal({
+        rum : 0,
+        whiteRum : 0,
+        vodka : 0, 
+        gin : 0,
+        whiskey : 0,
+        tripleSec : 0,
+        cognac : 0 ,
+        tequila : 0,
+        whiteTequila : 0 ,
+        total : 0
+        })
       }
 
 
     
-      //functionality for calorie calculator 
+      
+      //this will handle shot incrementation / decrementation 
+      //onClick={handleIncrement(this)}
 
-      function onChange(){//this is just to track total shots as is for cosmetic value only 
-        //here on change will look at a shot counter and will update when that value is changed 
-        
-        //this adds a shot 
-        setShotCount((count)=> count + 1)
+      //https://stackoverflow.com/questions/20030162/getting-data-attribute-for-onclick-event-for-an-html-element
+      //for the logic to do this wowowow poggers 
+      function handleIncrement(id){
 
       }
 
-
-      //this useEffect will calculate the total consumed 
+      //curently used to test state changing functions and not break react 
       useEffect(()=>{
-
+        handleShots("rum" , "add")
       },[])
 
 
