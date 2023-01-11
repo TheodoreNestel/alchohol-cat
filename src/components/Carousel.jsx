@@ -24,17 +24,20 @@ function Carousel(props){
                         key={`${drink}${Date.now()}`}
                 >
 
-                        <h2 className="carousel-container__title">{props.liquor[drink].display}</h2>
-
                         <a href="#"
-                        className="carousel-container__liquor-container"
+                        className="carousel-container__drink-option__liquor-container"
                         onClick={()=>props.stateChange(props.liquor[drink])}
                         >
-
+                           
                             <img 
-                            className="carousel-container__liquor-container__img" 
+                            className="carousel-container__drink-option__liquor-container__img" 
                             src={props.liquor[drink].src} 
                             />
+
+                            <h2 
+                            className="carousel-container__drink-option__liquor-container__title">
+                                {props.liquor[drink].display}
+                            </h2>
 
                         </a>
 

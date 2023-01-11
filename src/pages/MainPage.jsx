@@ -261,7 +261,6 @@ function MainPage(){
         //add button functionality for increment here or create a component 
     return(
         <div className="main-page">
-                <h1 className="main-page__title">Main page place holder</h1>
                 <LiquorCard
                 className="main-page__liquor-card" 
                 name={currentLiquor.display} 
@@ -270,9 +269,24 @@ function MainPage(){
                 cal={currentLiquor.cal}
                 />
 
+              <div className="main-page__button-div">
+                   
+                    <button 
+                    className="main-page__button-div__sub"
+                    onClick={()=> handleIncrement("sub")}
+                    >-1</button>
+
+                    <button 
+                    className="main-page__button-div__add"
+                    onClick={()=>handleIncrement("add")}
+                    >+1</button>
+
+                </div>
+
                 <BubbleCounter
                 className="main-page__bubble-counter"
                 cals={totalCal}
+                shots={totalShotsConsumed}
                 />
 
                 <Carousel
@@ -282,27 +296,20 @@ function MainPage(){
           
                 />
 
-                <div className="main-page__button-div">
-                    <button 
-                    className="main-page__button-div__add"
-                    onClick={()=>handleIncrement("add")}
-                    >+1</button>
 
-
-                    <button 
-                    className="main-page__button-div__sub"
-                    onClick={()=> handleIncrement("sub")}
-                    >-1</button>
-                </div>
-
-                <Summary 
-                shots={totalShotsConsumed}
-                cals={totalCal}
-                totalShots={GlobalShot}
-                 />
+               
         </div>
     )
 }
 
 
 export default MainPage;
+
+
+
+//deprecated component since I integrated its main logic to BubbleCounter 
+{/* <Summary 
+shots={totalShotsConsumed}
+cals={totalCal}
+totalShots={GlobalShot}
+ /> */}

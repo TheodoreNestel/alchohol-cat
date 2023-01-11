@@ -1,22 +1,6 @@
 
 
-TODO OVERALL 
-
--Liquor cards 
-    -Change the type of alchohol and calorie count based on a object key / value 
-
--Liquor card selector 
-    -lets you change the current selected type of liquor and renders the selected Liquor card 
-    -infinite scroll ? (only 9 options currently so maybe unnecessary currently)
-
--Liquor total count fancy bubble 
-    -a bubble with the total calories 
-    -sticky and is always on screen 
-    -grows larger the more drink consumed (based on shot counts vs calorie count?)
-    
-
-
-
+TODO JS 
 
 *- Optional feature 
     -chache all uses of the app to local storage so a user can reference all alchohol drank in total 
@@ -28,22 +12,17 @@ TODO OVERALL
 
 
 
+TODO SCSS
 
-TODO for calorie calculater 
-
-changing total shot count shouldnt be on 1 increment but based on another value 
-this logic should be tied to the increment buttons / type in amount of shots 
-
-and after a value is selected then the handleShot should be run for the liquor selected 
-
-    so two parts 
-        -buttons that increment by one : immediate state update : OnClick 
-        - typed value : updates when a new value is typed : onChange
+Liquor total count fancy bubble *Will need anime and js 
+    -a bubble with the total calories 
+    -sticky and is always on screen 
+    -grows larger the more drink consumed (based on shot counts vs calorie count?)
 
 
-    third part 
-        -calculator function / useEffect should run as soon as the TotalShotsConsumed object changes 
-        this will update its own piece of state totalCalories 
+Coherance and clena up 
+    
+
 
 
 
@@ -58,6 +37,10 @@ and after a value is selected then the handleShot should be run for the liquor s
 
 2 seconds to display the logo and the name of the app before rendering the first bottle 
 
+
+&&JUN help 
+    -overflow scroll hiding option (carousel component scss)
+        -clearly I am not understanding a css rule here
 
 
 

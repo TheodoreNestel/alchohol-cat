@@ -1,0 +1,47 @@
+
+
+.liquor-card{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60vw;
+
+    box-shadow: .0rem .0rem .8rem rgba(0,0,0,0.2);
+    border-radius: .6rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    margin-top: 2rem;
+
+    
+
+
+    &__liquor-img{
+        height: 50vh;
+        -webkit-filter: drop-shadow(1rem .5rem .2rem #666666);
+        filter: drop-shadow(1rem .5rem .2rem #666666);
+    }
+
+    &__info-card{
+
+
+        &__liquor-title{
+            font-size: 3rem;
+        }
+
+    
+        &__liquor-cal{
+    
+            font-size: 2rem;
+            
+    
+        }
+    }
+   
+}
+
+
