@@ -1,6 +1,8 @@
 import { useState , useEffect } from "react";
 import LiquorCard from "../components/LiquorCard"
-
+import BubbleCounter from "../components/BubbleCounter";
+import Carousel from "../components/Carousel";
+import Summary from "../components/Summary";
 function MainPage(){
 
 //IDEA state machine to track currently selected liquor ?
@@ -23,59 +25,68 @@ function MainPage(){
 
     //cal is based on a shot measurement
     const allDrinks = {
-        rum : {
+        Rum : {
           name : "Rum",
           cal : 97,
           src : "/bottle-assets/rum.png",
-          alt : "bottle of rum"
+          alt : "bottle of rum",
+          display : "Rum"
         },
-        whiteRum : {
+        WhiteRum : {
             name : "WhiteRum",
             cal : 54,
             src : "/bottle-assets/whiterum.png",
-            alt : "bottle of white rum"
+            alt : "bottle of white rum",
+            display : "White Rum"
           },
-          tripleSec : {
-            name : "Triple Sec",
+          TripleSec : {
+            name : "TripleSec",
             cal : 225,
             src : "/bottle-assets/triplesec.png",
-            alt : "bottle of triple sec"
+            alt : "bottle of triple sec",
+            display : "Triple Sec"
           },
-          gin : {
+          Gin : {
             name : "Gin",
             cal : 110,
             src : "/bottle-assets/gin.png",
-            alt : "bottle of gin"
+            alt : "bottle of gin",
+            display : "Gin"
           },
-          whiskey : {
+          Whiskey : {
             name : "Whiskey",
             cal : 105,
             src : "/bottle-assets/whiskey.png",
-            alt : "bottle of whiskey"
+            alt : "bottle of whiskey",
+            display : "Whiskey"
           },
-          whiteTequila : {
+          WhiteTequila : {
             name : "WhiteTequila",
             cal : 98,
             src : "/bottle-assets/whitetequila.png",
-            alt : "bottle of white tequila"
+            alt : "bottle of white tequila",
+            display : "White Tequila"
           },
-          vodka : {
+          Vodka : {
             name : "Vodka",
             cal : 97,
             src : "/bottle-assets/vodka.png",
-            alt : "bottle of vodka"
+            alt : "bottle of vodka",
+            display : "Vodka"
           },
-          tequila : {
+          Tequila : {
             name : "Tequila",
             cal : 98,
             src : "/bottle-assets/tequila.png",
-            alt : "bottle of tequila"
+            alt : "bottle of tequila",
+            display : "Tequila"
           },
-          cognac : {
+          Cognac : {
             name : "Cognac",
             cal : 98,
             src : "/bottle-assets/cognac.png",
-            alt : "bottle of cognac"
+            alt : "bottle of cognac",
+            display : "Cognac"
           }
       }
 
@@ -90,30 +101,30 @@ function MainPage(){
 
       //total calories consumed - per alchohol and all together 
       const [totalCal , setTotalCal] = useState({
-        rum : 0,
-        whiteRum : 0,
-        vodka : 0, 
-        gin : 0,
-        whiskey : 0,
-        tripleSec : 0,
-        cognac : 0 ,
-        tequila : 0,
-        whiteTequila : 0 ,
+        Rum : 0,
+        WhiteRum : 0,
+        Vodka : 0, 
+        Gin : 0,
+        Whiskey : 0,
+        TripleSec : 0,
+        Cognac : 0 ,
+        Tequila : 0,
+        WhiteTequila : 0,
         total : 0
 
       })
 
       //this will keep track of all the types shots consumed individual liquor
       const [totalShotsConsumed , setTotalShotsConsumed] = useState({
-        rum : 0,
-        whiteRum : 0,
-        vodka : 0, 
-        gin : 0,
-        whiskey : 0,
-        tripleSec : 0,
-        cognac : 0 ,
-        tequila : 0,
-        whiteTequila : 0
+        Rum : 0,
+        WhiteRum : 0,
+        Vodka : 0, 
+        Gin : 0,
+        Whiskey : 0,
+        TripleSec : 0,
+        Cognac : 0 ,
+        Tequila : 0,
+        WhiteTequila : 0
 
       })
 
@@ -134,9 +145,11 @@ function MainPage(){
 
         //SHOT INCREMENTATION LOGIC 
         if(operation === "add"){
+          //console.log("added a shot" ,liquor)
           newShotCount[liquor] = totalShotsConsumed[liquor] + 1 //we add one to the counter based on the liquor passed in
         }
-        else{
+        else if(totalShotsConsumed[liquor] !== 0){
+          console.log("legal sub")
           newShotCount[liquor] = totalShotsConsumed[liquor] - 1 //we remove one to our counter based on liquor
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -144,6 +157,7 @@ function MainPage(){
         //CALORIES & SHOT AMOUNTS LOGIC 
         let keys = Object.keys(totalShotsConsumed) //gets all keys in the totalshots objects and returns an array 
 
+      
         //add a caloric count for each type of drink 
         keys.forEach((liquori)=>{ //we iterate over each liquor and allShorts 
           //logic for individual liquor cal 
@@ -160,14 +174,16 @@ function MainPage(){
 
 
 
-        //debug 
-        console.log("total cal" ,newTotalCal , "shots total" , newGlobalShot , "shots indi" , newShotCount)
+        
 
 
+        //BUG RUNNING THE FUNCTION THE FIRST TIME ISNT UPDATING ANYTHING********
         //We now set state with all our new data 
         setTotalShotsConsumed(newShotCount) //we set our state with out updated object 
         setGlobalShot(newGlobalShot)
-        setTotalCal(totalCal)
+        setTotalCal(newTotalCal)
+
+        //console.log(totalCal , GlobalShot , totalShotsConsumed , "new state")
 
       }
 
@@ -212,17 +228,20 @@ function MainPage(){
     
       
       //this will handle shot incrementation / decrementation 
-      //onClick={handleIncrement(this)}
-
-      //https://stackoverflow.com/questions/20030162/getting-data-attribute-for-onclick-event-for-an-html-element
-      //for the logic to do this wowowow poggers 
       function handleIncrement(id){
+
+        if(id === "add"){
+          handleShots(currentLiquor.name , id)
+        }
+        else{
+          handleShots(currentLiquor.name , id)
+        }
 
       }
 
       //curently used to test state changing functions and not break react 
       useEffect(()=>{
-        handleShots("rum" , "add")
+        //handleShots("rum" , "add")
       },[])
 
 
@@ -237,12 +256,50 @@ function MainPage(){
 
 
       //card needs props that have a liquor.src / liquor.alt / liquor.name
+
+      //TODO 
+        //add button functionality for increment here or create a component 
     return(
-        <div>
-                <h1>Main page place holder</h1>
-                <LiquorCard name={currentLiquor.name} src={currentLiquor.src} alt={currentLiquor.alt}/>
+        <div className="main-page">
+                <h1 className="main-page__title">Main page place holder</h1>
+                <LiquorCard
+                className="main-page__liquor-card" 
+                name={currentLiquor.display} 
+                src={currentLiquor.src} 
+                alt={currentLiquor.alt} 
+                cal={currentLiquor.cal}
+                />
+
+                <BubbleCounter
+                className="main-page__bubble-counter"
+                cals={totalCal}
+                />
+
+                <Carousel
+                className="main-page__carousel"
+                liquor={{...allDrinks}}
+                stateChange ={setCurrentLiquor}
+          
+                />
+
+                <div className="main-page__button-div">
+                    <button 
+                    className="main-page__button-div__add"
+                    onClick={()=>handleIncrement("add")}
+                    >+1</button>
 
 
+                    <button 
+                    className="main-page__button-div__sub"
+                    onClick={()=> handleIncrement("sub")}
+                    >-1</button>
+                </div>
+
+                <Summary 
+                shots={totalShotsConsumed}
+                cals={totalCal}
+                totalShots={GlobalShot}
+                 />
         </div>
     )
 }

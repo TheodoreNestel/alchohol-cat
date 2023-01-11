@@ -66,3 +66,18 @@ and after a value is selected then the handleShot should be run for the liquor s
     -why does useEffect updating state run twice and how to prevent 
         -it runs once then state is changed so it renders again (i assume is the logic)
             -how make it not do that 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
