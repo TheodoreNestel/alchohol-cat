@@ -2,44 +2,96 @@
 
 .liquor-card{
 
+    //position for the absolutely positioned buttons
+    position: relative;
+
+    //alignment code
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    //sizing
+    width: 70%;
+    height: 90%;
 
-    width: 60vw;
+    //misc styles
+    box-shadow: .0rem .0rem .8rem .9rem rgba(0,0,0,0.2);
+    border-radius: .8rem;
+    
 
-    box-shadow: .0rem .0rem .8rem rgba(0,0,0,0.2);
-    border-radius: .6rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-
-    margin-top: 2rem;
+    //color
+    background-color: #f4efef;
 
     
 
 
     &__liquor-img{
-        height: 50vh;
+        height: 70%;
         -webkit-filter: drop-shadow(1rem .5rem .2rem #666666);
         filter: drop-shadow(1rem .5rem .2rem #666666);
+        margin-bottom: 3rem;
     }
 
     &__info-card{
 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: .5rem;
 
         &__liquor-title{
-            font-size: 3rem;
+            font-size: 2rem;
         }
 
     
         &__liquor-cal{
     
-            font-size: 2rem;
+            font-size: 1.5rem;
             
     
         }
+
+    }
+
+    //button div 
+    &__buttons{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        z-index: 1;
+
+        width: 100%;
+
+        //position
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        //selects all children in this case both our buttons
+        & > button{
+           
+           margin: 1rem 2rem;
+           border-radius: 50%;
+           min-width:  5rem;
+           min-height: 5rem;
+           border: none;
+           box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
+
+        }
+
+
+        &__sub{
+        }
+
+        &__add{
+        }
+
     }
    
 }

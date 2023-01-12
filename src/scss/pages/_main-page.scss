@@ -1,12 +1,62 @@
 
 .main-page{
+    //anchor value
     position: relative;
-    
-    max-width: 100vw;
+
+    //element sizing
+    width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
 
+    //alignment logic
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+
+    //color
+    background-color: rgb(237, 232, 232);
+
+
+
+    &__liquor-bubble{
+
+        //alignment code
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+
+
+        //element sizing
+        height: 70%;
+        width: 80%;
+
+
+        //misc styled 
+        //margin-top: 10rem;
+
+
+        //background-color: cyan;
+        
+
+        &__info-container{
+            margin: 2rem 4rem;
+
+            //element sizing
+            height: 90%;
+            width: 50%;
+
+            //alignment
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &__bubble-counter{
+            margin: 2rem 4rem;
+        }
+    }
 }

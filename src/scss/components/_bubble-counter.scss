@@ -1,18 +1,32 @@
 
 
 .bubble-counter{
-    position: absolute;
+    
 
-    width: 20vw;
-    height: 20vh;
+    width: 25vh;
+    height: 25vh;
     border: 0.1rem solid black;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 1rem;
 
     right: 5%;
     top: 20%;
 
-    border-radius: 50%;
+    border-radius: 100rem;
+
+
+    &__shots{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: .2rem;
+    }
+
+
+
 }

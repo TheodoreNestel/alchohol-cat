@@ -177,7 +177,7 @@ function MainPage(){
         
 
 
-        //BUG RUNNING THE FUNCTION THE FIRST TIME ISNT UPDATING ANYTHING********
+        
         //We now set state with all our new data 
         setTotalShotsConsumed(newShotCount) //we set our state with out updated object 
         setGlobalShot(newGlobalShot)
@@ -228,7 +228,7 @@ function MainPage(){
     
       
       //this will handle shot incrementation / decrementation 
-      function handleIncrement(id){
+      const handleIncrement = (id)=> {
 
         if(id === "add"){
           handleShots(currentLiquor.name , id)
@@ -261,33 +261,33 @@ function MainPage(){
         //add button functionality for increment here or create a component 
     return(
         <div className="main-page">
-                <LiquorCard
-                className="main-page__liquor-card" 
-                name={currentLiquor.display} 
-                src={currentLiquor.src} 
-                alt={currentLiquor.alt} 
-                cal={currentLiquor.cal}
-                />
 
-              <div className="main-page__button-div">
-                   
-                    <button 
-                    className="main-page__button-div__sub"
-                    onClick={()=> handleIncrement("sub")}
-                    >-1</button>
+        <div className="main-page__liquor-bubble">
 
-                    <button 
-                    className="main-page__button-div__add"
-                    onClick={()=>handleIncrement("add")}
-                    >+1</button>
+              <div className="main-page__liquor-bubble__info-container">
+                    <LiquorCard
+                    className="main-page__liquor-bubble__info-container__liquor-card" 
+                    name={currentLiquor.display} 
+                    src={currentLiquor.src} 
+                    alt={currentLiquor.alt} 
+                    cal={currentLiquor.cal}
+                    handleClick={handleIncrement}
+                    />
 
-                </div>
+                  <div className="main-page__liquor-bubble__info-container__button-div">
+                      
+
+                    </div>
+              </div>
+
 
                 <BubbleCounter
-                className="main-page__bubble-counter"
+                className="main-page__liquor-bubble__bubble-counter"
                 cals={totalCal}
                 shots={totalShotsConsumed}
                 />
+
+      </div>  
 
                 <Carousel
                 className="main-page__carousel"

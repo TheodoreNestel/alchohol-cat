@@ -10,8 +10,14 @@
     align-items: center;
 
     width: 80vw;
-    
-    overflow-x: auto;
+
+    overflow-x: scroll;
+
+    &:hover &__drink-option:not(:hover){
+        transform: scale(0.9);
+    }
+
+
 
 
 
@@ -24,6 +30,11 @@
 
         width: 100%;
 
+        transition: .1s linear;
+       
+
+       
+
 
         &__liquor-container{
 
@@ -32,10 +43,13 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            gap: .9rem;
 
             text-decoration: none;
-
+            color: black;
             
+
+
 
             
 
@@ -49,7 +63,9 @@
 
             &__img{
 
-                height: 30vh;
+                height: 20vh;
+
+                
 
             }
         }
