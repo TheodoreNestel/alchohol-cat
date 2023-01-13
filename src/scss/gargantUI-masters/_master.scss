@@ -7,9 +7,160 @@
 //on the page. With the exception of _resets.scss.
 
 
-
-
 //For development Tracking I wrote this backwards. Styled components the way I wanted them to look 
 //then backtracked and added variables / functions to get the same effect but with base values from this file
 
 
+
+//scss variable 
+//$variable-name : value
+//usage : $variable-name
+
+//MAIN PAGE STYLES (vibe)
+
+$main-page-width: 100vw;
+$main-page-height: 100vh;
+
+$main-background-color: rgb(237, 232, 232);
+
+
+$bubble-height: 70%;
+$bubble-width: 80%;
+
+$info-container-height: 90%;
+$info-container-width: 50%;
+
+//BubbleCounter Styles (vibe)
+
+$bubble-counter-height: 25vh;
+$bubble-counter-width: 25vh;
+
+$bubble-counter-right: 5%;
+$bubble-counter-left: 0%;
+$bubble-counter-top: 20%;
+$bubble-counter-bot: 0%;
+
+$bubble-counter-shot-gap: .2rem;
+
+//Carousel styles (vibe)
+
+$carousel-container-width: 80vw;
+$carousel-overflow-x: scroll;
+
+$carousel-hover-anim-scale: scale(0.9);
+
+$carousel-scale-transition: .1s linear;
+
+$carousel-liquor-name-color: black;
+
+$carousel-liquor-img-height: 20vh;
+
+
+//Liquor Card styles (vibe)
+
+$liquor-card-width: 70%;
+$liquor-card-height: 90%;
+
+$liquor-card-box-shadow: .0rem .0rem .8rem .9rem rgba(0,0,0,0.2);
+
+$liquor-card-background-color: #f4efef;
+
+$liquor-card-img-height: 70%;
+
+$liquor-card-img-drop-shadow: drop-shadow(1rem .5rem .2rem #666666);
+
+$liquor-card-title-font-size: 2rem;
+$liquor-card-cal-font-size: 1.5rem;
+
+$liquor-card-button-position-top: 50%;
+$liquor-card-button-position-bot: 0%;
+$liquor-card-button-position-right: 0%;
+$liquor-card-button-position-left: 50%;
+
+$liquor-card-button-width: 5rem;
+$liquor-card-button-height: 5rem;
+$liquor-card-button-border: none;
+
+$liquor-card-button-box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
+
+
+
+
+.root{
+
+//css variables 
+//--variable-name : value 
+//usage : var(--var-name)
+
+//MAIN PAGE STYLES (vibe)
+
+--main-page-width: 100vw;
+--main-page-height: 100vh;
+
+--main-background-color: rgb(237, 232, 232);
+
+
+--bubble-height: 70%;
+--bubble-width: 80%;
+
+--info-container-height: 90%;
+--info-container-width: 50%;
+
+//BubbleCounter Styles (vibe)
+
+--bubble-counter-height: 25vh;
+--bubble-counter-width: 25vh;
+
+--bubble-counter-right: 5%;
+--bubble-counter-left: 0%;
+--bubble-counter-top: 20%;
+--bubble-counter-bot: 0%;
+--bubble-counter-shot-gap: .2rem;
+
+//Carousel styles (vibe)
+
+--carousel-container-width: 80vw;
+--carousel-overflow-x: scroll;
+
+--carousel-hover-anim-scale: scale(0.9);
+
+--carousel-scale-transition: .1s linear;
+
+--carousel-liquor-name-color: black;
+
+--carousel-liquor-img-height: 20vh;
+
+
+//Liquor Card styles (vibe)
+
+--liquor-card-width: 70%;
+--liquor-card-height: 90%;
+
+--liquor-card-box-shadow: .0rem .0rem .8rem .9rem rgba(0,0,0,0.2);
+
+--liquor-card-background-color: #f4efef;
+
+--liquor-card-img-height: 70%;
+
+--liquor-card-img-drop-shadow: drop-shadow(1rem .5rem .2rem #666666);
+
+--liquor-card-title-font-size: 2rem;
+--liquor-card-cal-font-size: 1.5rem;
+
+--liquor-card-button-position-top: 50%;
+--liquor-card-button-position-bot: 0%;
+--liquor-card-button-position-right: 0%;
+--liquor-card-button-position-left: 50%;
+
+--liquor-card-button-border: none;
+
+
+--liquor-card-button-width: 5rem;
+--liquor-card-button-height: 5rem;
+
+--liquor-card-button-box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
+
+
+
+
+}

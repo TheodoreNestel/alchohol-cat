@@ -11,12 +11,12 @@ function LiquorCard(props){
                  <button 
                  className="liquor-card__buttons__sub"
                  onClick={()=> props.handleClick("sub")}
-                 >-1</button>
+                 >-</button>
 
                  <button 
                  className="liquor-card__buttons__add"
                  onClick={()=> props.handleClick("add")}
-                 >+1</button>
+                 >+</button>
             </div>
 
             <img className="liquor-card__liquor-img" src={props.src} alt={props.alt} />

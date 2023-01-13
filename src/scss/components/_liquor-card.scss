@@ -6,48 +6,47 @@
     position: relative;
 
     //alignment code
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    @include flex-center-align;
     flex-direction: column;
     //sizing
-    width: 70%;
-    height: 90%;
+    width: $liquor-card-width;
+    height: $liquor-card-height;
 
     //misc styles
-    box-shadow: .0rem .0rem .8rem .9rem rgba(0,0,0,0.2);
+    box-shadow: $liquor-card-box-shadow;
     border-radius: .8rem;
     
 
     //color
-    background-color: #f4efef;
+    background-color:$liquor-card-background-color;
 
     
 
 
     &__liquor-img{
-        height: 70%;
-        -webkit-filter: drop-shadow(1rem .5rem .2rem #666666);
-        filter: drop-shadow(1rem .5rem .2rem #666666);
+        height:$liquor-card-img-height;
+        -webkit-filter: $liquor-card-img-drop-shadow;
+        filter:$liquor-card-img-drop-shadow;
         margin-bottom: 3rem;
     }
 
     &__info-card{
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center-align;
         flex-direction: column;
         gap: .5rem;
 
         &__liquor-title{
-            font-size: 2rem;
+            font-size:$liquor-card-title-font-size;
         }
 
     
         &__liquor-cal{
     
-            font-size: 1.5rem;
+            font-size:$liquor-card-cal-font-size;
             
     
         }
@@ -58,8 +57,10 @@
     &__buttons{
 
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top:$liquor-card-button-position-top;
+        bottom:$liquor-card-button-position-bot;
+        right:$liquor-card-button-position-right;
+        left:$liquor-card-button-position-left;
         transform: translate(-50%, -50%);
 
         z-index: 1;
@@ -78,10 +79,10 @@
            
            margin: 1rem 2rem;
            border-radius: 50%;
-           min-width:  5rem;
-           min-height: 5rem;
-           border: none;
-           box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
+           min-width:$liquor-card-button-width;
+           min-height:$liquor-card-button-height;
+           border: $liquor-card-button-border;
+           box-shadow:$liquor-card-button-box-shadow;
 
         }
 

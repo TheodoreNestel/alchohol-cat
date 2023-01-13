@@ -4,19 +4,17 @@
     position: relative;
 
     //element sizing
-    width: 100vw;
-    height: 100vh;
+    width:$main-page-width;
+    height:$main-page-height;
     overflow-x: hidden;
 
     //alignment logic
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center-align;
     flex-direction: column;
 
 
     //color
-    background-color: rgb(237, 232, 232);
+    background-color:$main-background-color;
 
 
 
@@ -30,28 +28,24 @@
 
 
         //element sizing
-        height: 70%;
-        width: 80%;
+        height:$bubble-height;
+        width:$bubble-width;
 
 
         //misc styled 
-        //margin-top: 10rem;
 
 
-        //background-color: cyan;
         
 
         &__info-container{
             margin: 2rem 4rem;
 
             //element sizing
-            height: 90%;
-            width: 50%;
+            height:$info-container-height;
+            width:$info-container-width;
 
             //alignment
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex-center-align;
             flex-direction: column;
         }
 

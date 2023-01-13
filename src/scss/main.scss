@@ -1,5 +1,7 @@
 @import './base/resets';
-
+@import './typography/fonts';
+@import './gargantUI-masters/master';
+@import './gargantUI-masters/mixins';
 @import './pages/main-page';
 @import './components/liquor-card';
 @import './components/carousel';

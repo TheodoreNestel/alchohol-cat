@@ -5,32 +5,28 @@
 
     margin: 2rem  2rem ;
     
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center-align;
 
-    width: 80vw;
+    width:$carousel-container-width;
 
-    overflow-x: scroll;
+    overflow-x:$carousel-overflow-x;
 
     &:hover &__drink-option:not(:hover){
-        transform: scale(0.9);
+        transform: $carousel-hover-anim-scale;
     }
 
 
 
 
 
-//HIDES OPTIONS
+//HIDES some options on the left 
     &__drink-option{
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center-align;
 
         width: 100%;
 
-        transition: .1s linear;
+        transition: $carousel-scale-transition;
        
 
        
@@ -39,14 +35,12 @@
         &__liquor-container{
 
            
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex-center-align;
             flex-direction: column;
             gap: .9rem;
 
             text-decoration: none;
-            color: black;
+            color:$carousel-liquor-name-color;
             
 
 
@@ -55,15 +49,10 @@
 
             //gap: 1rem;
 
-            &__title{
-               
-                
-                
-            }
 
             &__img{
 
-                height: 20vh;
+                height:$carousel-liquor-img-height;
 
                 
 

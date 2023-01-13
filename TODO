@@ -2,26 +2,43 @@
 
 TODO JS 
 
-*- Optional feature 
+*- Optional feature (Feature will need an additonal page ON HOLD)
     -chache all uses of the app to local storage so a user can reference all alchohol drank in total 
     -until reset ? vs per day / week ? 
 
 
--Liquor-Cat main page that opens with a first alchohol type 
-    -calculations done in this page as it will be the "parent" for the others components 
+
+# ####################################################################################
+#
+# TODO SCSS & Styling (Arjun advise for styling and animations)
+#
+#
+# Liquor total count fancy bubble *Will need anime and js 
+#    -a bubble with the total calories 
+#    -sticky and is always on screen 
+#    -grows larger the more drink consumed (based on shot counts vs calorie count?)
+#
+# INTRO animation
+#    -Features the logo and and then reveals the app 
+#
+# ***JUN cool like entry animation for the app with the "logo" and a loading circle that will always last at least 
+#
+# 2 seconds to display the logo and the name of the app before rendering the first bottle 
+#
+#
+#
+# ####################################################################################
 
 
+FRIDAY TODO 
 
-TODO SCSS
+    Logo **FRIDAY 
+        -add logo 
 
-Liquor total count fancy bubble *Will need anime and js 
-    -a bubble with the total calories 
-    -sticky and is always on screen 
-    -grows larger the more drink consumed (based on shot counts vs calorie count?)
-
-
-Coherance and clena up 
     
+        
+# css -> variables : has been done as best I can with my current knowledge 
+#   -I need a supervisor to let me know what I can do better / what I did correctly.
 
 
 
@@ -30,22 +47,12 @@ Coherance and clena up
 
 
 
-
-
-
-***JUN cool like entry animation for the app with the "logo" and a loading circle that will always last at least 
-
-2 seconds to display the logo and the name of the app before rendering the first bottle 
-
-
-&&JUN help 
+# &&JUN help 
     -overflow scroll hiding option (carousel component scss)
         -clearly I am not understanding a css rule here
 
 
-
-
-***QUESTIONS 
+# ***QUESTIONS 
     -why does useEffect updating state run twice and how to prevent 
         -it runs once then state is changed so it renders again (i assume is the logic)
             -how make it not do that 

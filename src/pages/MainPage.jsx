@@ -2,26 +2,10 @@ import { useState , useEffect } from "react";
 import LiquorCard from "../components/LiquorCard"
 import BubbleCounter from "../components/BubbleCounter";
 import Carousel from "../components/Carousel";
-import Summary from "../components/Summary";
 function MainPage(){
 
-//IDEA state machine to track currently selected liquor ?
 
-
-//FUNCTIONALITY 
-// 
-
-
-  // -rum 
-	// -white rum 
-	// -vodka 
-	// -gin 
-	// -whiskey 
-	// -tripple sec 
-	// -cognac 
-	// -tequila 
-	// -white tequila 
-
+  //state needed to track the various parts of the calculator
 
     //cal is based on a shot measurement
     const allDrinks = {
@@ -91,8 +75,8 @@ function MainPage(){
       }
 
 
-      //this will be set to allDrinks.something and be updated by the carousel 
-      //by default itll be set to the first item in the allDrinks object
+     //The current Selected Liquor state. Updated Via the carousel component. It starts with the first item in the 
+     //all drinks state object
       const [currentLiquor , setCurrentLiquor] = useState(allDrinks[Object.keys(allDrinks)[0]])
 
 
@@ -261,6 +245,8 @@ function MainPage(){
         //add button functionality for increment here or create a component 
     return(
         <div className="main-page">
+
+          <img className="main-page__logo" src="#" />
 
         <div className="main-page__liquor-bubble">
 
