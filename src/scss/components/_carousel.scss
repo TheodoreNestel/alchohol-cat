@@ -1,18 +1,34 @@
 
-
-
-.carousel-container{
-
+.carousel{
+   
     margin: 2rem  2rem ;
-    
-    @include flex-center-align;
 
-    width:$carousel-container-width;
+    width: 100%;
 
     overflow-x:$carousel-overflow-x;
 
+    @include flex-center-align;
+
+
+    //for mobile this will need to be added via media query
+    //justify-content: flex-start;
+
+}
+
+.carousel-container{
+
+    
+    @include flex-center-align;
+
+    width:max-content;
+
+    
+
     &:hover &__drink-option:not(:hover){
         transform: $carousel-hover-anim-scale;
+
+        filter: opacity(60%);
+
     }
 
 

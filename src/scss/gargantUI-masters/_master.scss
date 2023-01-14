@@ -68,7 +68,13 @@ $carousel-liquor-img-height: 20vh;
 $liquor-card-width: 70%;
 $liquor-card-height: 90%;
 
-$liquor-card-box-shadow: .0rem .0rem .8rem .9rem rgba(0,0,0,0.2);
+$liquor-card-box-shadow:2.8px 2.8px 3.3px rgba(0, 0, 0, 0.018),
+6.7px 6.7px 7.8px rgba(0, 0, 0, 0.027),
+12.5px 12.5px 14.8px rgba(0, 0, 0, 0.031),
+22.3px 22.3px 26.4px rgba(0, 0, 0, 0.035),
+41.8px 41.8px 49.3px rgba(0, 0, 0, 0.038),
+100px 100px 118px rgba(0, 0, 0, 0.05)
+;
 
 $liquor-card-background-color: #f4efef;
 
@@ -93,7 +99,7 @@ $liquor-card-button-box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
 
 
 
-.root{
+:root{
 
 //css variables 
 //--variable-name : value 
@@ -150,11 +156,12 @@ $liquor-card-button-box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
 --liquor-card-width: 70%;
 --liquor-card-height: 90%;
 
---liquor-card-box-shadow: .0rem .0rem .8rem .9rem rgba(0,0,0,0.2);
+--liquor-card-box-shadow:#{$liquor-card-box-shadow};
 
 --liquor-card-background-color: #f4efef;
 
 --liquor-card-img-height: 70%;
+
 
 --liquor-card-img-drop-shadow: drop-shadow(1rem .5rem .2rem #666666);
 

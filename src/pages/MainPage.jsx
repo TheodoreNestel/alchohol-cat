@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import { useState , useEffect , useRef } from "react";
 import LiquorCard from "../components/LiquorCard"
 import BubbleCounter from "../components/BubbleCounter";
 import Carousel from "../components/Carousel";
@@ -112,6 +112,10 @@ function MainPage(){
 
       })
 
+      //ref hack logic 
+      const exitAnimation = useRef();
+
+
 
       //This function handles all shot logic [TYPE , AMOUNT , CALORIES]
       function handleShots(liquor , operation){
@@ -223,12 +227,9 @@ function MainPage(){
 
       }
 
-      //curently used to test state changing functions and not break react 
-      useEffect(()=>{
-        //handleShots("rum" , "add")
-      },[])
+      
 
-
+    
 
       
     
@@ -258,6 +259,7 @@ function MainPage(){
                     alt={currentLiquor.alt} 
                     cal={currentLiquor.cal}
                     handleClick={handleIncrement}
+                    exitAnim={exitAnimation}
                     />
 
                   <div className="main-page__liquor-bubble__info-container__button-div">
@@ -275,12 +277,15 @@ function MainPage(){
 
       </div>  
 
+      
                 <Carousel
                 className="main-page__carousel"
                 liquor={{...allDrinks}}
                 stateChange ={setCurrentLiquor}
+                exitAnim={exitAnimation}
           
                 />
+     
 
 
                

@@ -8,16 +8,16 @@ function BubbleCounter(props){
         
             <div className="bubble-counter">
                 <div className="bubble-counter__shots">
-                <h2 className="bubble-counter__shots__title"> Shots added: </h2>
+                {/* <h2 className="bubble-counter__shots__title"> Shots added: </h2>
                         {
                             Object.keys(props.shots).map((liquor)=>{
                                 if(props.shots[liquor] !== 0){
                                    return <h3>{liquor}: {props.shots[liquor]}</h3>
                                 }
                             })
-                        }
+                        } */}
                 </div>
-                <h2 className="bubble-counter__cal-count">Total Calories: {props.cals.total}</h2>
+                <h2 className="bubble-counter__cal-count"> {props.cals.total} <span className="bubble-counter__cal-count__span">Cal</span></h2>
             </div>
 
             )

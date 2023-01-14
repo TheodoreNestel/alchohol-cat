@@ -1,4 +1,4 @@
-
+import { useRef } from "react"
 
 //QUESTIOn why is the return necessary to get them to show when I know previously it wasnt 
 function Carousel(props){
@@ -10,43 +10,70 @@ function Carousel(props){
 
     //props has the allDrinks object and the currentLiquor state changer function 
 
+
+    const isAnimation = useRef(false)
+
+
+
+    //animation exit logic !! add check to make sure this cant run if the current liquor is the same
+   async function handleChange(drink){
+    if(isAnimation.current) return
+    isAnimation.current = true
+        props.exitAnim.current.play()
+        await props.exitAnim.current.finished
+    isAnimation.current = false
+
+        props.stateChange(drink)
+    }
+
     return(
 
 
+<div className="carousel">
+
         <div className="carousel-container">
 
-        {
-            Object.keys(props.liquor).map((drink)=>{
-
-
-             return ( <div
-                        className="carousel-container__drink-option"
-                        key={`${drink}${Date.now()}`}
-                >
-
-                        <a href="#"
-                        className="carousel-container__drink-option__liquor-container"
-                        onClick={()=>props.stateChange(props.liquor[drink])}
-                        >
-                           
-                            <img 
-                            className="carousel-container__drink-option__liquor-container__img" 
-                            src={props.liquor[drink].src} 
-                            />
-
-                            <h2 
-                            className="carousel-container__drink-option__liquor-container__title">
-                                {props.liquor[drink].display}
-                            </h2>
-
-                        </a>
-
-               </div>)
-
-            })
-        }
 
             
+
+            
+
+                    {
+                        Object.keys(props.liquor).map((drink)=>{
+
+
+                        return ( <div
+                                    className="carousel-container__drink-option"
+                                    key={`${drink}${Date.now()}`}
+                            >
+
+                                    <a href="#"
+                                    className="carousel-container__drink-option__liquor-container"
+                                    onClick={()=>handleChange(props.liquor[drink])}
+                                    >
+                                    
+                                        <img 
+                                        className="carousel-container__drink-option__liquor-container__img" 
+                                        src={props.liquor[drink].src} 
+                                        />
+
+                                        <h2 
+                                        className="carousel-container__drink-option__liquor-container__title">
+                                            {props.liquor[drink].display}
+                                        </h2>
+
+                                    </a>
+
+                        </div>)
+
+                        })
+                    }
+
+               
+
+            
+
+        </div>
 
         </div>
        
