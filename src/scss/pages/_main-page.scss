@@ -17,6 +17,16 @@
     background-color:$main-background-color;
 
 
+    &__logo{
+        position: absolute;
+        height: $logo-size;
+        left: $logo-left;
+        top: $logo-top;
+        bottom: $logo-bot;
+        right:$logo-right;
+    }
+
+
 
     &__liquor-bubble{
 

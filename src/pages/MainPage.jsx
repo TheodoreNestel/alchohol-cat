@@ -246,7 +246,7 @@ function MainPage(){
     return(
         <div className="main-page">
 
-          <img className="main-page__logo" src="#" />
+          <img className="main-page__logo" src="/logo-licker-cat.png" />
 
         <div className="main-page__liquor-bubble">
 
