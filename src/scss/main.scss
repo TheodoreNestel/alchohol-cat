@@ -1,9 +1,11 @@
 @import './base/resets';
 @import './typography/fonts';
+@import './abstracts/magic-mediaQueries';
 @import './gargantUI-masters/master';
 @import './gargantUI-masters/mixins';
 @import './pages/main-page';
 @import './components/liquor-card';
 @import './components/carousel';
 @import './components/bubble-counter';
+
 

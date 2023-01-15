@@ -17,7 +17,8 @@ function Carousel(props){
 
     //animation exit logic !! add check to make sure this cant run if the current liquor is the same
    async function handleChange(drink){
-    if(isAnimation.current) return
+
+    if(isAnimation.current || props.currentDrink.name === drink.name) return
     isAnimation.current = true
         props.exitAnim.current.play()
         await props.exitAnim.current.finished
@@ -47,6 +48,17 @@ function Carousel(props){
                                     key={`${drink}${Date.now()}`}
                             >
 
+                               
+
+                               
+
+                               
+                                    <div className="carousel-container__drink-option__shot-container">
+                                        <span className="carousel-container__drink-option__shot-container__shots" >
+                                            {props.totalShots[drink]}
+                                        </span>
+                                    </div>
+                        
                                     <a href="#"
                                     className="carousel-container__drink-option__liquor-container"
                                     onClick={()=>handleChange(props.liquor[drink])}

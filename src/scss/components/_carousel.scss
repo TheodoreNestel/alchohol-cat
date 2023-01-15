@@ -1,17 +1,21 @@
 
 .carousel{
    
-    margin: 2rem  2rem ;
+    margin:var(--carousel-margin);
 
-    width: 100%;
+    width: var(--carousel-width);
 
-    overflow-x:$carousel-overflow-x;
+    overflow-x:var(--carousel-overflow-x);
 
     @include flex-center-align;
 
 
     //for mobile this will need to be added via media query
     //justify-content: flex-start;
+
+    @include respond("tab-port"){
+        justify-content: flex-start;
+    }
 
 }
 
@@ -25,9 +29,9 @@
     
 
     &:hover &__drink-option:not(:hover){
-        transform: $carousel-hover-anim-scale;
+        transform:var(--carousel-hover-anim-scale);
 
-        filter: opacity(60%);
+        filter:var(--carousel-hover-filter);
 
     }
 
@@ -42,7 +46,32 @@
 
         width: 100%;
 
-        transition: $carousel-scale-transition;
+        transition:var(--carousel-scale-transition);
+
+        position: relative;
+
+        &__shot-container{
+
+            height:var(--carousel-shot-container-height);
+            width:var(--carousel-shot-container-width);
+            background:var(--carousel-shot-container-background);
+            border-radius:var(--carousel-shot-container-border-radius);
+            @include flex-center-align;
+
+            //Position absolute code 
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top:var(--carousel-shot-container-top);
+            right:var(--carousel-shot-container-right);
+
+            &__shots{
+            color:var(--carousel-shot-container-shot-color);
+            display: inline-block;
+            font-size:var(--carousel-shot-container-shot-font-size);
+            
+        }
+
+        }
        
 
        

@@ -5,48 +5,45 @@
     //position for the absolutely positioned buttons
     position: relative;
 
-    //alignment code
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     @include flex-center-align;
     flex-direction: column;
+
     //sizing
-    width: $liquor-card-width;
-    height: $liquor-card-height;
+    width: var(--liquor-card-width);
+    height: var(--liquor-card-height);
 
     //misc styles
-    box-shadow: $liquor-card-box-shadow;
+    box-shadow: var(--liquor-card-box-shadow);
     border-radius: .8rem;
     
 
     //color
-    background-color:$liquor-card-background-color;
+    background-color:var(--liquor-card-background-color);
 
     
 
 
     &__liquor-img{
-        height:$liquor-card-img-height;
-        -webkit-filter: $liquor-card-img-drop-shadow;
-        filter:$liquor-card-img-drop-shadow;
-        margin-bottom: 3rem;
+        height:var(--liquor-card-img-height);
+        -webkit-filter:var( --liquor-card-img-drop-shadow);
+        filter:var(--liquor-card-img-drop-shadow);
+        margin-bottom:var(--liquor-card-img-margin-bottom);
     }
 
     &__info-card{
 
         @include flex-center-align;
         flex-direction: column;
-        gap: .5rem;
+        gap:var(--liquor-card-info-flex-gap);
 
         &__liquor-title{
-            font-size:$liquor-card-title-font-size;
+            font-size:var(--liquor-card-title-font-size);
         }
 
     
         &__liquor-cal{
     
-            font-size:$liquor-card-cal-font-size;
+            font-size:var(--liquor-card-cal-font-size);
             
     
         }
@@ -57,15 +54,15 @@
     &__buttons{
 
         position: absolute;
-        top:$liquor-card-button-position-top;
-        bottom:$liquor-card-button-position-bot;
-        right:$liquor-card-button-position-right;
-        left:$liquor-card-button-position-left;
+        top:var(--liquor-card-button-position-top);
+        bottom:var(--liquor-card-button-position-bot);
+        right:var(--liquor-card-button-position-right);
+        left:var(--liquor-card-button-position-left);
         transform: translate(-50%, -50%);
 
         z-index: 1;
 
-        width: 100%;
+        width:var(--liquor-card-button-container-width);
 
         //position
 
@@ -77,22 +74,33 @@
         //selects all children in this case both our buttons
         & > button{
            
-           margin: 1rem 2rem;
+           margin:var(--liquor-card-button-margin);
            border-radius: 50%;
-           min-width:$liquor-card-button-width;
-           min-height:$liquor-card-button-height;
-           border: $liquor-card-button-border;
-           box-shadow:$liquor-card-button-box-shadow;
 
-           background-color: rgb(151, 206, 217);
+           min-width:var(--liquor-card-button-width);
+           min-height:var(--liquor-card-button-height);
+           border:var(--liquor-card-button-border);
+           box-shadow:var(--liquor-card-button-box-shadow);
+
+           font-size:var(--liquor-card-button-font-size);
+           color:var(--liquor-card-button-font-color);
+
+           &:active{
+            transform:var(--liquor-card-button-active-scale);
+            box-shadow: 0 0 0;
+           }
+           transition:var(--liquor-card-button-transition);
+
 
         }
 
 
         &__sub{
+            background-color:var(--liquor-card-button-sub-color);
         }
 
         &__add{
+            background-color:var(--liquor-card-button-plus-color);
         }
 
     }

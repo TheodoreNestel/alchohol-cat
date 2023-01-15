@@ -24,6 +24,10 @@
         top: $logo-top;
         bottom: $logo-bot;
         right:$logo-right;
+
+        @include respond("weird-land"){
+            display: none;
+        }
     }
 
 
@@ -35,6 +39,14 @@
         justify-content: space-around;
         align-items: center;
         flex-direction: row;
+
+        @include respond("tab-port"){
+            flex-direction: column;
+        }
+
+        @include respond("phone"){
+            flex-direction: column;
+        }
 
 
         //element sizing
@@ -50,6 +62,17 @@
         &__info-container{
             margin: 2rem 4rem;
 
+
+            @include respond("tab-port"){
+                margin: 0;
+                height: auto;
+            }
+
+            @include respond("phone"){
+                margin: 0;
+                height: auto;
+            }
+
             //element sizing
             height:$info-container-height;
             width:$info-container-width;
@@ -60,7 +83,7 @@
         }
 
         &__bubble-counter{
-            margin: 2rem 4rem;
+            margin:var(main-page-bubble-counter-margin);
         }
     }
 }

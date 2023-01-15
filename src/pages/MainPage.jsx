@@ -283,6 +283,8 @@ function MainPage(){
                 liquor={{...allDrinks}}
                 stateChange ={setCurrentLiquor}
                 exitAnim={exitAnimation}
+                currentDrink = {currentLiquor}
+                totalShots={totalShotsConsumed}
           
                 />
      

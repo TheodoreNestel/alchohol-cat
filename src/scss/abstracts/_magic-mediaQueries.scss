@@ -8,12 +8,20 @@
 @mixin respond($breakpoint) {
     //then we can use the scss directive @if to check which argument was passed in and apply to correct mixin from there
 
+    @if $breakpoint == mini-phone {
+        @media (max-width: 25em) {@content;}
+    }
+
     @if $breakpoint == phone { //if the arg is phone then ->
         @media (max-width: 37.7em) {@content;} //apply the media query -600px
     }
 
     @if $breakpoint == tab-port { //if the arg is tab-port then ->
         @media (max-width: 56.25em) {@content;} //apply the media query - 900px
+    }
+
+    @if $breakpoint == weird-land {
+        @media (max-width: 43.75em) {@content;}
     }
 
     @if $breakpoint == tab-land { //if the arg is tab-land then ->

@@ -18,6 +18,7 @@
 
 //MAIN PAGE STYLES (vibe)
 
+
 $main-page-width: 100vw;
 $main-page-height: 100vh;
 
@@ -36,11 +37,15 @@ $logo-left: 1%;
 $logo-top: 1%;
 $logo-bot: 0%;
 
+$main-page-bubble-counter-margin: 2rem 4rem;
+
 
 //BubbleCounter Styles (vibe)
 
 $bubble-counter-height: 25vh;
 $bubble-counter-width: 25vh;
+
+
 
 $bubble-counter-right: 5%;
 $bubble-counter-left: 0%;
@@ -48,6 +53,13 @@ $bubble-counter-top: 20%;
 $bubble-counter-bot: 0%;
 
 $bubble-counter-shot-gap: .2rem;
+
+$bubble-counter-background:radial-gradient(circle, rgba(222,191,149,1) 0%, rgba(234,179,106,1) 57%, rgba(234,179,106,1) 100%);
+
+$bubble-counter-cal-count-color:  rgba(black , .7);
+$bubble-counter-cal-count-font-size:  2.4rem;
+
+
 
 //Carousel styles (vibe)
 
@@ -61,6 +73,21 @@ $carousel-scale-transition: .1s linear;
 $carousel-liquor-name-color: black;
 
 $carousel-liquor-img-height: 20vh;
+
+$carousel-liquor-container-gap: .9rem;
+
+
+$carousel-margin: 2rem 2rem;
+$carousel-width: 100%;
+$carousel-hover-filter: opacity(60%);
+$carousel-shot-container-height: 3rem;
+$carousel-shot-container-width: 3rem;
+$carousel-shot-container-background: radial-gradient(circle, rgba(222,191,149,1) 0%, rgba(234,179,106,1) 57%, rgba(234,179,106,1) 100%);
+$carousel-shot-container-border-radius: 50%;
+$carousel-shot-container-top: 20%;
+$carousel-shot-container-right: -2%;
+$carousel-shot-container-shot-color:  rgba(rgb(0, 0, 0) , .7);
+$carousel-shot-container-shot-font-size: 1.5rem;
 
 
 //Liquor Card styles (vibe)
@@ -82,13 +109,35 @@ $liquor-card-img-height: 70%;
 
 $liquor-card-img-drop-shadow: drop-shadow(1rem .5rem .2rem #666666);
 
+$liquor-card-img-margin-bottom:3rem;
+
 $liquor-card-title-font-size: 2rem;
 $liquor-card-cal-font-size: 1.5rem;
+$liquor-card-info-flex-gap:  .5rem;
+
 
 $liquor-card-button-position-top: 50%;
 $liquor-card-button-position-bot: 0%;
 $liquor-card-button-position-right: 0%;
 $liquor-card-button-position-left: 50%;
+
+$liquor-card-button-container-width:  100%;
+
+$liquor-card-button-margin:  1rem 2rem;
+
+$liquor-card-button-font-color: rgba(rgb(0, 0, 0) , .7);
+
+$liquor-card-button-font-size:  2.6rem;
+
+$liquor-card-button-active-scale:  scale(0.9);
+
+$liquor-card-button-transition: .09s ease-in-out;
+
+$liquor-card-button-sub-color: rgba(210, 65, 65, 0.479);
+
+$liquor-card-button-plus-color:rgba(59, 219, 59, 0.529);
+
+
 
 $liquor-card-button-width: 5rem;
 $liquor-card-button-height: 5rem;
@@ -107,79 +156,204 @@ $liquor-card-button-box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
 
 //MAIN PAGE STYLES (vibe)
 
---main-page-width: 100vw;
---main-page-height: 100vh;
+--main-page-width:#{$main-page-width};
+--main-page-height:#{$main-page-height};
 
---main-background-color: rgb(237, 232, 232);
+--main-background-color:#{$main-background-color};
+
+--bubble-height:#{$bubble-height};
+--bubble-width:#{$bubble-width};
+
+--info-container-height:#{$main-page-height};
+--info-container-width:#{$main-page-width};
 
 
---bubble-height: 70%;
---bubble-width: 80%;
 
---info-container-height: 90%;
---info-container-width: 50%;
+--logo-size:#{$logo-size};
+--logo-right:#{$logo-right};
+--logo-left:#{$logo-left};
+--logo-top:#{$logo-top};
+--logo-bot:#{$logo-bot};
 
---logo-size: 15rem;
---logo-right: 0%;
---logo-left: 1%;
---logo-top: 1%;
---logo-bot: 0%;
+
+
+--main-page-bubble-counter-margin:#{$main-page-bubble-counter-margin};
+
+
+
+
+
 
 
 //BubbleCounter Styles (vibe)
 
---bubble-counter-height: 25vh;
---bubble-counter-width: 25vh;
+--bubble-counter-height:#{$bubble-counter-height};
+--bubble-counter-width:#{$bubble-counter-width};
 
---bubble-counter-right: 5%;
---bubble-counter-left: 0%;
---bubble-counter-top: 20%;
---bubble-counter-bot: 0%;
---bubble-counter-shot-gap: .2rem;
+--bubble-counter-right:#{$bubble-counter-right};
+--bubble-counter-left:#{$bubble-counter-left};
+--bubble-counter-top:#{$bubble-counter-top};
+--bubble-counter-bot:#{$bubble-counter-bot};
+--bubble-counter-shot-gap:#{$bubble-counter-shot-gap};
+
+--bubble-counter-background:#{$bubble-counter-background};
+
+--bubble-counter-cal-count-color:#{$bubble-counter-cal-count-color};
+--bubble-counter-cal-count-font-size:#{bubble-counter-cal-count-font-size};
+
+--bubble-counter-cal-num-font: 4.8rem;
+
+
+//tablet landscape css 1200px width
+@include respond("tab-land"){
+    // --bubble-counter-height: 20rem;
+    // --bubble-counter-width:20rem;
+}
+@include respond("tab-port"){
+    --bubble-counter-height: 15rem;
+    --bubble-counter-width:15rem;
+
+    --bubble-counter-cal-count-font-size: 2.4rem;
+    --bubble-counter-cal-num-font: 3.4rem;
+}
+@include respond("phone"){
+    --bubble-counter-height: 12rem;
+    --bubble-counter-width:12rem;
+
+    --bubble-counter-cal-count-font-size: 1.4rem;
+    --bubble-counter-cal-num-font: 2.4rem;
+
+}
+@include respond("mini-phone"){
+    --bubble-counter-height: 10rem;
+    --bubble-counter-width:10rem;
+
+    --bubble-counter-cal-count-font-size: 1.1rem;
+    --bubble-counter-cal-num-font: 2.5rem;
+
+
+}
+
+
+
+
 
 //Carousel styles (vibe)
 
---carousel-container-width: 80vw;
---carousel-overflow-x: scroll;
+--carousel-container-width:#{carousel-container-width};
+--carousel-overflow-x:#{$carousel-overflow-x};
 
---carousel-hover-anim-scale: scale(0.9);
+--carousel-hover-anim-scale:#{$carousel-hover-anim-scale};
 
---carousel-scale-transition: .1s linear;
+--carousel-scale-transition:#{$carousel-scale-transition};
 
---carousel-liquor-name-color: black;
+--carousel-liquor-name-color:#{$carousel-liquor-name-color};
 
---carousel-liquor-img-height: 20vh;
+--carousel-liquor-img-height:#{$carousel-liquor-img-height};
+
+--carousel-margin:#{$carousel-margin};
+--carousel-width:#{$carousel-width};
+
+--carousel-hover-filter:#{$carousel-hover-filter};
+
+--carousel-shot-container-height:#{$carousel-shot-container-height};
+--carousel-shot-container-width:#{$carousel-shot-container-width};
+
+--carousel-shot-container-background:#{$carousel-shot-container-background};
+
+--carousel-shot-container-border-radius:#{$carousel-shot-container-border-radius};
+
+--carousel-shot-container-top:#{$carousel-shot-container-top};
+--carousel-shot-container-right:#{$carousel-shot-container-right};
+
+--carousel-shot-container-shot-color:#{$carousel-shot-container-shot-color};
+
+--carousel-shot-container-shot-font-size:#{$carousel-shot-container-shot-font-size};
+
+
 
 
 //Liquor Card styles (vibe)
 
---liquor-card-width: 70%;
---liquor-card-height: 90%;
+--liquor-card-width:#{$liquor-card-width};
+--liquor-card-height:#{$liquor-card-height};
 
 --liquor-card-box-shadow:#{$liquor-card-box-shadow};
 
---liquor-card-background-color: #f4efef;
+--liquor-card-background-color:#{$liquor-card-background-color};
 
---liquor-card-img-height: 70%;
-
-
---liquor-card-img-drop-shadow: drop-shadow(1rem .5rem .2rem #666666);
-
---liquor-card-title-font-size: 2rem;
---liquor-card-cal-font-size: 1.5rem;
-
---liquor-card-button-position-top: 50%;
---liquor-card-button-position-bot: 0%;
---liquor-card-button-position-right: 0%;
---liquor-card-button-position-left: 50%;
-
---liquor-card-button-border: none;
+--liquor-card-img-height:#{$liquor-card-img-height};
 
 
---liquor-card-button-width: 5rem;
---liquor-card-button-height: 5rem;
+--liquor-card-img-drop-shadow:#{$liquor-card-img-drop-shadow};
 
---liquor-card-button-box-shadow: .0rem .0rem .8rem .5rem rgba(0,0,0,0.2);
+--liquor-card-title-font-size:#{$liquor-card-title-font-size};
+
+--liquor-card-cal-font-size:#{$liquor-card-cal-font-size};
+
+
+
+
+--liquor-card-button-position-top:#{$liquor-card-button-position-top};
+
+--liquor-card-button-position-bot:#{$liquor-card-button-position-bot};
+
+--liquor-card-button-position-right:#{$liquor-card-button-position-right};
+
+--liquor-card-button-position-left:#{$liquor-card-button-position-left};
+
+
+
+--liquor-card-button-container-width:#{$liquor-card-button-container-width};
+
+--liquor-card-button-margin:#{$liquor-card-button-margin};
+
+--liquor-card-button-font-color:#{$liquor-card-button-font-color};
+
+--liquor-card-button-font-size:#{$liquor-card-button-font-size};
+
+--liquor-card-button-active-scale:#{$liquor-card-button-active-scale};
+
+--liquor-card-button-transition:#{$liquor-card-button-transition};
+
+
+
+--liquor-card-button-sub-color:#{$liquor-card-button-sub-color};
+
+--liquor-card-button-plus-color:#{$liquor-card-button-plus-color};
+
+
+
+
+--liquor-card-button-width:#{$liquor-card-button-width};
+
+--liquor-card-button-height:#{$liquor-card-button-height};
+
+--liquor-card-button-border:#{$liquor-card-button-border};
+
+--liquor-card-button-box-shadow:#{$liquor-card-button-box-shadow};
+
+
+@include respond("tab-land"){
+    
+}
+@include respond("tab-port"){
+   --liquor-card-width:70vw;
+    --liquor-card-height:40vh;
+
+    --liquor-card-img-height: 50%;
+}
+
+@include respond("phone"){
+    
+    --liquor-card-width:70vw;
+    --liquor-card-height:40vh;
+
+    --liquor-card-img-height: 50%;
+
+
+
+}
 
 
 

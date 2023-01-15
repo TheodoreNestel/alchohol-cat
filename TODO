@@ -21,12 +21,8 @@ TODO
 
 
     TODO SUNDAY 
-        -clean up animations make sure doubleclick on liquor doesnt break anything 
-        -second pass on GargantUI masterFile 
-        -Media Queries 
+        
         -paralax / figure out current used device so we know if we are using mouse or Accelerometer for paralax 
-        -change button colors bassed on current liquor color make font for button bigger too 
-        -shot count on carousel looking like ios notification bubbles
         
         BONUS 
         -intro animations 

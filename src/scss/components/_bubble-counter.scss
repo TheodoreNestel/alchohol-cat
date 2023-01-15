@@ -3,26 +3,26 @@
 .bubble-counter{
     
 
-    width:$bubble-counter-width;
-    height:$bubble-counter-height;
+    width:var(--bubble-counter-width);
+    height:var(--bubble-counter-height);
     background: rgb(222,191,149);
-    background: radial-gradient(circle, rgba(222,191,149,1) 0%, rgba(234,179,106,1) 57%, rgba(234,179,106,1) 100%);
+    background:var(--bubble-counter-background);
     @include flex-center-align;
     flex-direction: column;
     gap: 1rem;
 
-    right:$bubble-counter-right;
-    top:$bubble-counter-top;
-    bottom:$bubble-counter-bot;
-    left: $bubble-counter-left;
+    right:var(--bubble-counter-right);
+    top:var(--bubble-counter-top);
+    bottom:var(--bubble-counter-bot);
+    left:var(--bubble-counter-left);
     border-radius: 100rem;
     
 
     &__cal-count{
-        font-size: 4.8rem;
-        color: rgba(black , .7);
+        font-size:var(--bubble-counter-cal-num-font);
+        color:var(bubble-counter-cal-count-color);
         &__span{
-            font-size: 2.4rem;
+            font-size:var(--bubble-counter-cal-count-font-size);
         }
     }
 
